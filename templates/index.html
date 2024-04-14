@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>English-Ukrainian Dictionary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <div class="translator-container">
+        <h1>English-Ukrainian Dictionary</h1>
+        <form action="/translate" method="post">
+            <label for="word">Enter English word:</label><br>
+            <input class="input-text" type="text" id="word" name="word"><br>
+            <button class="translate-button" name="Translate">Translate</button>
+        </form>
+    </div>
+
+    <div class="translator-container">
+        <h2>Add new word:</h1>
+        <form action="/add_word" method="post">
+            <label for="word">English Word:</label><br>
+            <input class="input-text" type="text" id="word" name="word"><br>
+            <label for="translation">Translation:</label><br>
+            <input class="input-text" type="text" id="translation" name="translation"><br>
+            <button class="translate-button" name="Add">Add</button>
+        </form>
+    </div>
+</body>
+</html>
