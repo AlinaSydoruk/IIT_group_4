@@ -8,4 +8,4 @@ services:
     environment:
       FLASK_DEBUG: "true"
   redis:
-    image: "redis:alpine"
+    image: "redis:latest"
