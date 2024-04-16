@@ -3,7 +3,7 @@ import redis
 
 app = Flask(__name__)
 try:
-    cache = redis.Redis(host='redis', port=6379)
+    cache = redis.Redis(host='127.0.0.1', port=6379)
 except Exception as e:
     print(f"Error connecting to Redis: {e}")
     cache = None
