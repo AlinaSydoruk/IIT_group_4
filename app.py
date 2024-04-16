@@ -23,9 +23,9 @@ def translate():
         translation = cache.get(word)
         if translation:
             translation = translation.decode('utf-8')  # Декодуємо байтовий рядок в рядок Unicode
-            return render_template('result.html', word=word, translation=translation)
+            return render_template('result.html', word1=word, translation=translation)
         else:
-            return render_template('result.html', word=word, translation="Translation not found")
+            return render_template('result.html', word1=word, translation="Translation not found")
 
 if __name__ == '__main__':
     app.run(debug=True)
