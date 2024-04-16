@@ -10,7 +10,7 @@ def index():
 
 @app.route('/add_word', methods=['POST'])
 def add_word():
-    word = request.form['word']
+    word = request.form['word2']
     translation = request.form['translation']
     cache.set(word, translation)
     print(f"Added word: {word}, Translation: {translation}")
@@ -19,7 +19,7 @@ def add_word():
 @app.route('/translate', methods=['GET', 'POST'])
 def translate():
     if request.method == 'POST':
-        word = request.form['word']
+        word = request.form['word1']
         translation = cache.get(word)
         if translation:
             translation = translation.decode('utf-8')  # Декодуємо байтовий рядок в рядок Unicode
