@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інформація про учасника</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+<body>
+    <div class="container">
+        <h1>Інформація про учасника</h1>
+        <div class="participant-info">
+            <p><strong>Ім'я:</strong> {{ participant.name }}</p>
+            <p><strong>Вік:</strong> {{ participant.age }}</p>
+            <p><strong>Email:</strong> {{ participant.email }}</p>
+            <p><strong>Стать:</strong> {{ participant.sex }}</p>
+            <p><strong>Країна:</strong> {{ participant.country }}</p>
+            <p><strong>Місто:</strong> {{ participant.city }}</p>
+        </div>
+        <a href="/" class="back-link">Повернутися до списку бригади</a>
+    </div>
+</body>
+</html>

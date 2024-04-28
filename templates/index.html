@@ -1,29 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>English-Ukrainian Dictionary</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список 4-ої бригади</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 <body>
-    <div class="translator-container">
-        <h1>English-Ukrainian Dictionary</h1>
-        <form action="/translate" method="post">
-            <label for="word1">Enter English word:</label><br>
-            <input class="input-text" type="text" id="word1" name="word1"><br>
-            <button class="translate-button" name="Translate">Translate</button>
-        </form>
-    </div>
-
-    <div class="translator-container">
-        <h2>Add new word:</h2>
-        <form action="/add_word" method="post">
-            <label for="word2">English Word:</label><br>
-            <input class="input-text" type="text" id="word2" name="word2"><br>
-            <label for="translation">Translation:</label><br>
-            <input class="input-text" type="text" id="translation" name="translation"><br>
-            <button class="translate-button" name="Add">Add</button>
-        </form>
-
+    <div class="container">
+        <h1>Список 4-ої бригади</h1>
+        <ul>
+            <li><a href="/participant/1">Костенко Павло Сергійович</a></li>
+            <li><a href="/participant/2">Сидорук Аліна Костянтинівна</a></li>
+            <li><a href="/participant/3">Хижняк Валерія Валеріївна</a></li>
+        </ul>
     </div>
 </body>
 </html>

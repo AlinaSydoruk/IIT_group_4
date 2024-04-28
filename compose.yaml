@@ -7,5 +7,3 @@ services:
       - .:/code
     environment:
       FLASK_DEBUG: "true"
-  redis:
-    image: "redis:latest"

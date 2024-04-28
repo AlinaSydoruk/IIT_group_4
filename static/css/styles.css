@@ -1,0 +1,106 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #e8eff1, #a6c0fe, #fbc2eb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #333;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #dcdcdc;
+    transition: all 0.3s ease;
+}
+
+
+h1 {
+    text-align: center;
+    color: #5a5a5a;
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    background: -webkit-linear-gradient(left, #70e1f5, #ffd194, #70e1f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbowText 10s ease infinite;
+}
+
+@keyframes rainbowText {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+li:hover {
+    background-color: #efefef;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #2962ff;
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+.participant-info {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid #eaeaea;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+}
+
+.participant-info:hover {
+    background-color: #eeeeee;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.back-link {
+    display: block;
+    margin-top: 30px;
+    color: #3498db;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    color: #2962ff;
+    transform: scale(1.05);
+}

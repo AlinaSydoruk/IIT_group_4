@@ -1,47 +1,26 @@
-from flask import Flask, render_template, request
-import redis
+from flask import Flask, render_template
 
 app = Flask(__name__)
-try:
-    cache = redis.Redis(host='127.0.0.1', port=6379)
-except Exception as e:
-    print(f"Error connecting to Redis: {e}")
-    cache = None
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/add_word', methods=['POST'])
-def add_word():
-    try:
-        word = request.form['word2']
-        translation = request.form['translation']
-        if cache:
-            cache.set(word, translation)
-            print(f"Added word: {word}, Translation: {translation}")
-            return render_template('add_word_result.html')
-        else:
-            return "Error: Cache is not available"
-    except Exception as e:
-        return f"An error occurred: {e}"
+@app.route('/participant/<int:participant_id>')
+def participant(participant_id):
 
-@app.route('/translate', methods=['GET', 'POST'])
-def translate():
-    if request.method == 'POST':
-        try:
-            word = request.form['word1']
-            if cache:
-                translation = cache.get(word)
-                if translation:
-                    translation = translation.decode('utf-8')  # Декодуємо байтовий рядок в рядок Unicode
-                    return render_template('result.html', word=word, translation=translation)
-                else:
-                    return render_template('result.html', word=word, translation="Translation not found")
-            else:
-                return "Error: Cache is not available"
-        except Exception as e:
-            return f"An error occurred: {e}"
+    participant_data = {
+        1: {'name': 'Костенко Павло Сергійович', 'age': 20, 'email': 'pashasonic10@gmail.com',
+            'sex':'Чоловіча', 'country':'Австрія', 'city':'Відень'},
+        2: {'name': 'Сидорук Аліна Костянтинівна', 'age': 19, 'email': 'sydorukalina2020@gmail.com',
+            'sex':'Жіноча', 'country':'Швейцарія', 'city':'Люцерн'},
+        3: {'name': 'Хижняк Валерія Валеріївна', 'age': 19, 'email': 'valeriia_khyzhniak@gmail.com',
+            'sex': 'Жіноча', 'country':'Австрія', 'city':'Відень'}
+    }
+    participant_info = participant_data.get(participant_id)
+    if not participant_info:
+        return 'Учасник не знайдений'
+    return render_template('participant.html', participant=participant_info)
 
 if __name__ == '__main__':
     app.run(debug=True)
