@@ -32,7 +32,7 @@ h1 {
     color: #5a5a5a;
     font-size: 2.5em;
     margin-bottom: 0.5em;
-    background: -webkit-linear-gradient(left, #70e1f5, #faa390, #13004d);
+    background: -webkit-linear-gradient(left, #70e1f5, #9099fa, #13004d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: rainbowText 10s ease infinite;
