@@ -2,7 +2,7 @@ terraform {
 
   required_providers {
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
       version = "~> 4.16"
     }
   }
@@ -20,7 +20,7 @@ resource "aws_iam_role" "ec2_role" {
   name = "ec2_role"
 
   assume_role_policy = jsonencode({
-    Version = "2012-10-17"
+    Version   = "2012-10-17"
     Statement = [
       {
         Action = "sts:AssumeRole"
@@ -33,26 +33,28 @@ resource "aws_iam_role" "ec2_role" {
   })
 }
 resource "aws_security_group" "allow_all" {
-  name = "allow_all_traffic"
+  name        = "allow_all_traffic"
   description = "Allow all inbound and outbound traffic"
-  vpc_id = "vpc-02cb567927744d0ec"
+  vpc_id      = "vpc-02cb567927744d0ec"
 
 
   ingress {
     description = "All traffic"
-    from_port = 0
-    to_port = 0
-    protocol = "-1"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = [
-      "0.0.0.0/0"]
+      "0.0.0.0/0"
+    ]
   }
 
   egress {
-    from_port = 0
-    to_port = 0
-    protocol = "-1"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = [
-      "0.0.0.0/0"]
+      "0.0.0.0/0"
+    ]
   }
 
   tags = {
@@ -64,7 +66,7 @@ resource "aws_iam_role_policy" "ec2_policy" {
   role = aws_iam_role.ec2_role.id
 
   policy = jsonencode({
-    Version = "2012-10-17"
+    Version   = "2012-10-17"
     Statement = [
       {
         Action = [
@@ -72,7 +74,7 @@ resource "aws_iam_role_policy" "ec2_policy" {
           "logs:CreateLogStream",
           "logs:PutLogEvents",
         ],
-        Effect = "Allow",
+        Effect   = "Allow",
         Resource = "arn:aws:logs:*:*:*"
       },
     ]
@@ -80,13 +82,13 @@ resource "aws_iam_role_policy" "ec2_policy" {
 }
 
 
-
 resource "aws_instance" "app_server" {
-  ami = "ami-0bb84b8ffd87024d8"
-  instance_type = "t2.micro"
-  key_name = "IIT_Lab6"
+  ami             = "ami-0bb84b8ffd87024d8"
+  instance_type   = "t2.micro"
+  key_name        = "IIT_Lab6"
   security_groups = [
-    aws_security_group.allow_all.name]
+    aws_security_group.allow_all.name
+  ]
   iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
 
   user_data = <<-EOF
