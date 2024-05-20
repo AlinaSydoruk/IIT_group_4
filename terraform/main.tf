@@ -20,7 +20,7 @@ resource "aws_iam_role" "ec2_role" {
   name = "ec2_role"
 
   assume_role_policy = jsonencode({
-    Version   = "2012-10-17"
+    Version = "2012-10-17"
     Statement = [
       {
         Action = "sts:AssumeRole"
@@ -49,9 +49,9 @@ resource "aws_security_group" "allow_all" {
   }
 
   egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
+    from_port = 0
+    to_port   = 0
+    protocol  = "-1"
     cidr_blocks = [
       "0.0.0.0/0"
     ]
@@ -66,7 +66,7 @@ resource "aws_iam_role_policy" "ec2_policy" {
   role = aws_iam_role.ec2_role.id
 
   policy = jsonencode({
-    Version   = "2012-10-17"
+    Version = "2012-10-17"
     Statement = [
       {
         Action = [
@@ -83,9 +83,9 @@ resource "aws_iam_role_policy" "ec2_policy" {
 
 
 resource "aws_instance" "app_server" {
-  ami             = "ami-0bb84b8ffd87024d8"
-  instance_type   = "t2.micro"
-  key_name        = "IIT_Lab6"
+  ami           = "ami-0bb84b8ffd87024d8"
+  instance_type = "t2.micro"
+  key_name      = "IIT_Lab6"
   security_groups = [
     aws_security_group.allow_all.name
   ]
